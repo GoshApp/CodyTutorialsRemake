@@ -4,5 +4,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Настройки</string>
+    <string name="title_nav_menu">Cody tutorials</string>
+    <string name="title_mail_nav">codytutorials@gmail.com</string>
+    <string name="menu_java">Java</string>
+    <string name="menu_javaScript">JavaScript</string>
+    <string name="menu_python">Python</string>
+    <string name="menu_web">WEB</string>
+    <string name="menu_communicate">Связь</string>
+    <string name="menu_share">Поделиться</string>
+    <string name="menu_send">Напиши нам</string>
 </resources>
