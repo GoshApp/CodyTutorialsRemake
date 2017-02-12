@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.MenuItem;
 
 public class ActivityTabs extends FragmentActivity implements ActionBar.TabListener {
     private ViewPager viewPager;
@@ -76,7 +77,19 @@ public class ActivityTabs extends FragmentActivity implements ActionBar.TabListe
     // по возврату назад
     @Override
     public void onBackPressed() {
-        super.onBackPressed(); // по кнопке назад запускаем анимацию
+        super.onBackPressed(); // по кнопке назад  в телефоне запускаем анимацию
         overridePendingTransition (R.anim.open_main, R.anim.close_next);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // нажатие по иконке назад  в экшей баре, влозвращаемся  вглавное активити
+                this.finish();
+                overridePendingTransition (R.anim.open_main, R.anim.close_next);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
