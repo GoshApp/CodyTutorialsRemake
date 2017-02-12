@@ -73,4 +73,10 @@ public class ActivityTabs extends FragmentActivity implements ActionBar.TabListe
     public void onTabUnselected(Tab tab, FragmentTransaction ft) {
         Log.d(LOG_TAG, "unselected tab: " + tab.getText());
     }
+    // по возврату назад
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed(); // по кнопке назад запускаем анимацию
+        overridePendingTransition (R.anim.open_main, R.anim.close_next);
+    }
 }
