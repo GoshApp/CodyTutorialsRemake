@@ -18,8 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityTabs"></activity>
-
+        <activity android:name=".ActivityTabs" />
+        <activity
+            android:name=".PreferencesActivity"
+            android:label="@string/title_activity_preferences"></activity>
     </application>
 
 </manifest>
