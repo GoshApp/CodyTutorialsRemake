@@ -17,9 +17,11 @@
 
 
     <!-- Write your description about profile menu for tab 1 and tab 2 -->
-    <string name="profile_tab1">Здесь будет Плейлист</string>
+    <string name="profile_tab1">Здесь будет Плейлист Java</string>
 	<string name="profile_tab2">
-		<p><strong>Книга или методичка</strong>
-        Здесь будет текст как в книге</p>
+		<p><strong>Книга или методичка Java</strong>
+        Здесь будет текст как в книге Java</p>
 	</string>
+    <string name="profile_tab3">Здесь будет Плейлист JavaScript</string>
+    <string name="profile_tab4">Здесь книга или методичка JavaScript</string> // пока заглушки!!!
 </resources>

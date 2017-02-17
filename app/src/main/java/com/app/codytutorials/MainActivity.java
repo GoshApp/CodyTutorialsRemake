@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    final String LOG_TAG = "myLogs"; // добавлем логи
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +38,9 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
-
+        drawer.openDrawer(GravityCompat.START);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -83,10 +85,16 @@ public class MainActivity extends AppCompatActivity
         Intent intent;
 
         if (id == R.id.nav_java) {
+            Log.d(LOG_TAG, "номер id кнопки: " + R.id.nav_java);
             intent = new Intent(this, ActivityTabs.class);
+            intent.putExtra("fname", R.id.nav_java); ///// //// ////  не забыть !!!
             startActivity(intent);
-        } else if (id == R.id.nav_javaScript) {
 
+        } else if (id == R.id.nav_javaScript) {
+            Log.d(LOG_TAG, "номер id кнопки: " + R.id.nav_javaScript);
+            intent = new Intent(MainActivity.this, ActivityTabs.class);
+            intent.putExtra("fname", id); ///// //// ////  не забыть !!!
+            startActivity(intent);
         } else if (id == R.id.nav_python) {
 
         } else if (id == R.id.nav_web) {
@@ -100,5 +108,9 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+
     }
+
+
+
 }
