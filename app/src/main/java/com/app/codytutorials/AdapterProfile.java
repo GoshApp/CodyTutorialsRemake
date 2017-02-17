@@ -36,7 +36,7 @@ public class AdapterProfile extends FragmentPagerAdapter {
                                                      // публичное статическое поле
               Log.d(LOG_TAG, "номер индекса: " + i); // логи
             switch (i){
-                case 2131558561: // id нажатого меню Java
+                case 2131689634: // id нажатого меню Java
                     if(index == 0){                           // таб 1
                         tab = R.string.profile_tab1;
                         imgResId = R.drawable.icon_camera;    // иконка с ресурсов, заглушка-тест
@@ -46,7 +46,7 @@ public class AdapterProfile extends FragmentPagerAdapter {
 
                     }
                     break;
-                case 2131558562: // id нажатого меню javaScript
+                case 2131689635: // id нажатого меню javaScript
                     if(index == 0){
                         tab = R.string.profile_tab3;
                         // здесь также будет путь к файлу
@@ -55,7 +55,7 @@ public class AdapterProfile extends FragmentPagerAdapter {
                         tab = R.string.profile_tab4;
                     }
                     break;
-                case 2131558563: // id нажатого меню nav_python
+                case 2131689636: // id нажатого меню nav_python
                     if(index == 0){
                         tab = R.string.profile_tab3;    // заглушки
                     }

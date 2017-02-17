@@ -33,6 +33,7 @@ public class SwipeTabFragment extends Fragment {
         tabImage.setImageResource(image);
         
         TextView tv = (TextView) view.findViewById(R.id.textView);
+
         tv.setText(tab);
         
 

@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity
     final String LOG_TAG = "myLogs"; // добавлем логи
 
     Intent intent;
+    Intent intentPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +74,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            intent = new Intent(this, PreferencesActivity.class);
-            startActivity(intent);
+            intentPref = new Intent(this, PreferencesActivity.class);
+            startActivity(intentPref);
         }
 
         return super.onOptionsItemSelected(item);
@@ -90,13 +91,13 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_java) {
             Log.d(LOG_TAG, "номер id кнопки: " + R.id.nav_java);
             intent = new Intent(this, ActivityTabs.class);
-            intent.putExtra("fname", R.id.nav_java); ///// //// ////  не забыть !!!
+            intent.putExtra("fname", R.id.nav_java);
             startActivity(intent);
 
         } else if (id == R.id.nav_javaScript) {
             Log.d(LOG_TAG, "номер id кнопки: " + R.id.nav_javaScript);
             intent = new Intent(MainActivity.this, ActivityTabs.class);
-            intent.putExtra("fname", id); ///// //// ////  не забыть !!!
+            intent.putExtra("fname", id);
             startActivity(intent);
         } else if (id == R.id.nav_python) {
 
