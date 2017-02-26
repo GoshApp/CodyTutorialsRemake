@@ -104,6 +104,14 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_web) {
 
         } else if (id == R.id.nav_share) {
+            // поделиться приложением
+            Intent sendInt = new Intent(Intent.ACTION_SEND);
+            sendInt.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+            sendInt.putExtra(Intent.EXTRA_TEXT, "Привет, советую скачать это приложение\n\"" + getString(R.string.app_name)
+                    + "\" \n по ссылке https://github.com/Jack220591/CodyTutorials?id=" + getPackageName());
+            // важный момент, нужно добавить ?id= в концедля нормального отображения ссылки
+            sendInt.setType("text/plain");
+            startActivity(Intent.createChooser(sendInt, "Поделиться"));
 
         } else if (id == R.id.nav_send) {
 
