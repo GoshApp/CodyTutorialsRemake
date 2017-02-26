@@ -46,7 +46,7 @@ public class AdapterProfile extends FragmentPagerAdapter {
 
                     }
                     break;
-                case 2131689635: // id нажатого меню javaScript
+                case 2131689637: // id нажатого меню javaScript
                     if(index == 0){
                         tab = R.string.profile_tab3;
                         // здесь также будет путь к файлу

@@ -93,12 +93,14 @@ public class MainActivity extends AppCompatActivity
             intent = new Intent(this, ActivityTabs.class);
             intent.putExtra("fname", R.id.nav_java);
             startActivity(intent);
+           overridePendingTransition(R.anim.open_next, R.anim.close_next);
 
         } else if (id == R.id.nav_javaScript) {
-            Log.d(LOG_TAG, "номер id кнопки: " + R.id.nav_javaScript);
-            intent = new Intent(MainActivity.this, ActivityTabs.class);
-            intent.putExtra("fname", id);
+            Log.d(LOG_TAG, "!!!!!!!!!!!!!!!!!!номер id кнопки: " + item.getItemId());
+            intent = new Intent(this, ActivityTabs.class);
+            intent.putExtra("fname", item.getItemId());
             startActivity(intent);
+            overridePendingTransition(R.anim.open_next, R.anim.close_next);
         } else if (id == R.id.nav_python) {
 
         } else if (id == R.id.nav_web) {
@@ -114,6 +116,10 @@ public class MainActivity extends AppCompatActivity
             startActivity(Intent.createChooser(sendInt, "Поделиться"));
 
         } else if (id == R.id.nav_send) {
+            intent = new Intent(MainActivity.this, ActivityContactUs.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.open_next, R.anim.close_next);
+
 
         }
 

@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public class SplashActivity extends AppCompatActivity {
-
+    // загрузочный экран при старте приложения
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

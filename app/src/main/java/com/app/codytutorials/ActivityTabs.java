@@ -3,9 +3,12 @@ package com.app.codytutorials;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -30,7 +33,10 @@ public class ActivityTabs extends FragmentActivity implements ActionBar.TabListe
         viewPager.setAdapter(tabPagerAdapter);                             // подключаем адаптер с нужными параметрами
 
         actionBar = getActionBar();                     // заголовок
+        assert actionBar != null;
         actionBar.setTitle("Как будем учиться?");
+        actionBar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
+        actionBar.setTitle((Html.fromHtml("<font color=\"#ffffff\">" + "Как будем учиться?" + "</font>")));
 
         getActionBar().setDisplayHomeAsUpEnabled(true); // добавляем иконку назад на ActionBar
         getActionBar().setHomeButtonEnabled(true);      // делаем иконку кликабельной
