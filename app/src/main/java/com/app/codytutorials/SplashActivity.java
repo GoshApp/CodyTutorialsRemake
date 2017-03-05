@@ -4,12 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+
 /**
- * Created by Rikmen on 26.02.2017.
+ *           Загрузочный экран при старте приложения
  */
 
 public class SplashActivity extends AppCompatActivity {
-    // загрузочный экран при старте приложения
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

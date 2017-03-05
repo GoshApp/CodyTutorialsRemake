@@ -6,7 +6,7 @@
 
     <string name="email_address">rikmenv@yandex.ru</string>
     <string name="action_settings">Настройки</string>
-    <string name="title_nav_menu">Cody tutorials</string>
+    <string name="title_nav_menu">Cody Tutorials</string>
     <string name="title_mail_nav">codytutorials@gmail.com</string>
     <string name="menu_java">Java</string>
     <string name="menu_javaScript">JavaScript</string>
@@ -101,6 +101,8 @@
     <string name="str_contact">Связь с нами</string>
     <string name="txt_add_text">Введите свой текст..</string>
     <string name="txt_send">Отправить</string>
+    <string name="search">Поиск</string>
+    <string name="failed">Не удалось инициализировать Youtube Player</string>
 </resources>
 
 
