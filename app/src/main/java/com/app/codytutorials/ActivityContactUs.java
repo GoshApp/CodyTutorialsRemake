@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
@@ -22,9 +23,7 @@ public class ActivityContactUs extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.contact_us);
-
 		ActionBar bar = getActionBar();
-		assert bar != null;
 		bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
 		bar.setTitle((Html.fromHtml("<font color=\"#ffffff\">" + "Связь с нами" + "</font>")));
 		bar.setDisplayHomeAsUpEnabled(true);
@@ -54,34 +53,57 @@ public class ActivityContactUs extends Activity {
 		return true;
 	}
 
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		switch (item.getItemId()) {
-
-		case android.R.id.home:
-			// app icon in action bar clicked; go home
-			Intent intent = new Intent(ActivityContactUs.this, MainActivity.class);
-			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-			startActivity(intent);
-			overridePendingTransition(R.anim.open_main, R.anim.close_next);
-			return true;
-
-		default:
-			return super.onOptionsItemSelected(item);
+		int id = item.getItemId();
+		Intent intent;
+		//noinspection SimplifiableIfStatement
+		switch(id) {
+			case android.R.id.home:
+				// app icon in action bar clicked; go home
+				intent = new Intent(ActivityContactUs.this, MainActivity.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+				startActivity(intent);
+				overridePendingTransition(R.anim.open_main, R.anim.close_next);
+				break;
+			case R.id.settings:
+				intent = new Intent(this, PreferencesActivity.class);
+				startActivity(intent);
+				overridePendingTransition(R.anim.open_next, R.anim.close_next);
+				break;
+			case R.id.about:
+				intent = new Intent(this, ActivityAbout.class);
+				startActivity(intent);
+				overridePendingTransition(R.anim.open_next, R.anim.close_next);
+				break;
+			case R.id.rate_app:
+				try {
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
+				} catch (android.content.ActivityNotFoundException anfe) {
+					startActivity(new Intent(Intent.ACTION_VIEW,
+							Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+				}
+				break;
+			case R.id.more_app:
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.more_apps))));
+				break;
 		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
 	public void onBackPressed() {
-
 		super.onBackPressed();
 		Intent intent = new Intent(ActivityContactUs.this, MainActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		startActivity(intent);
 		overridePendingTransition(R.anim.open_main, R.anim.close_next);
 	}
+
+
 
 }

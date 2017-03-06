@@ -19,12 +19,13 @@
 
     <!-- Write your description about profile menu for tab 1 and tab 2 -->
     <string name="profile_tab1">Здесь будет Плейлист Java</string>
-	<string name="profile_tab2">
+    <string name="profile_tab2">
 		<p><strong>Книга или методичка Java</strong>
         Здесь будет текст как в книге Java</p>
 	</string>
     <string name="profile_tab3">Здесь будет Плейлист JavaScript</string>
-    <string name="profile_tab4">Здесь книга или методичка JavaScript</string> // пока заглушки!!!
+    <string name="profile_tab4">Здесь книга или методичка JavaScript</string>
+    // пока заглушки!!!
     <string name="title_activity_preferences">Preferences</string>
 
     <!-- Strings related to Settings -->
@@ -103,6 +104,17 @@
     <string name="txt_send">Отправить</string>
     <string name="search">Поиск</string>
     <string name="failed">Не удалось инициализировать Youtube Player</string>
+    <string name="setting">Настройки</string>
+    <string name="about">О приложении</string>
+    <string name="rate">Оценить приложение</string>
+    <string name="more">Больше приложений</string>
+    <string name="app_version">1.0.0</string>
+    <string name="copyright">Copyright &#169; 2017 codytutorials@gmail.com \n Все права защищены</string>
+    <string name="txt_settings">Здесь будут настройки приложения</string>
+    <string name="more_apps">https://play.google.com/store/apps/collection/topselling_free?hl=ru</string>
+    <string name="menu">Меню</string>
+    <string name="txt_welcom">Добро пожаловать!</string>
+    <string name="hint_search">Поиск</string>
 </resources>
 
 

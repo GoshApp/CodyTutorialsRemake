@@ -3,5 +3,5 @@
     <color name="colorPrimary">#4c72af</color>
     <color name="colorPrimaryDark">#2e487d</color>
     <color name="colorAccent">#81b3c7</color>
-    <color name="colorBackgroundSplashActivity">#FFFFFF</color>
+    <color name="colorBackgroundSplashActivity">#ffffff</color>
 </resources>

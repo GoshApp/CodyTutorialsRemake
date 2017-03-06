@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/ic_menu"
+        android:icon="@drawable/ic_ab_overflow_compat"
+        android:showAsAction="always"
+        android:title="@string/menu">
+        <menu>
+            <!-- Настройки приложения -->
+            <item
+                android:id="@+id/settings"
+                android:showAsAction="ifRoom|withText"
+                android:title="@string/setting"/>
+
+            <!-- О приложении -->
+            <item
+                android:id="@+id/about"
+                android:showAsAction="ifRoom|withText"
+                android:title="@string/about"/>
+
+            <!-- Оценить приложение -->
+            <item
+                android:id="@+id/rate_app"
+                android:showAsAction="ifRoom|withText"
+                android:title="@string/rate"/>
+
+            <!-- Больше приложений -->
+            <item
+                android:id="@+id/more_app"
+                android:showAsAction="ifRoom|withText"
+                android:title="@string/more"/>
+        </menu>
+    </item>
 </menu>
