@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity
 
     Intent intent;
     Intent intentPref;
+    ActivityTabs activityTabs;
 
 
     @Override
@@ -121,11 +122,11 @@ public class MainActivity extends AppCompatActivity
             overridePendingTransition(R.anim.open_next, R.anim.close_next);
 
         } else if (id == R.id.nav_javaScript) {
-            Log.d(LOG_TAG, "!!!!!!!!!!!!!!!!!!номер id кнопки: " + item.getItemId());
-            intent = new Intent(this, ActivityTabs.class);
-            intent.putExtra("fname", item.getItemId());
-            startActivity(intent);
-            overridePendingTransition(R.anim.open_next, R.anim.close_next);
+//            Log.d(LOG_TAG, "!!!!!!!!!!!!!!!!!!номер id кнопки: " + item.getItemId());
+//            intent = new Intent(this, ActivityTabs.class);
+//            intent.putExtra("fname", item.getItemId());
+//            startActivity(intent);
+//            overridePendingTransition(R.anim.open_next, R.anim.close_next);
         } else if (id == R.id.nav_python) {
 
         } else if (id == R.id.nav_web) {

@@ -1,10 +1,12 @@
-package com.app.codytutorials;
+package com.app.codytutorials.fragment;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.app.codytutorials.R;
 
 /**
  * Created by Rikmen on 05.03.2017.

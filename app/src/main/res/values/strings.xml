@@ -8,6 +8,7 @@
     <string name="action_settings">Настройки</string>
     <string name="title_nav_menu">Cody Tutorials</string>
     <string name="title_mail_nav">codytutorials@gmail.com</string>
+    <string name="title_toolbar_java">Java</string>
     <string name="menu_java">Java</string>
     <string name="menu_javaScript">JavaScript</string>
     <string name="menu_python">Python</string>
@@ -15,6 +16,9 @@
     <string name="menu_communicate">Связь</string>
     <string name="menu_share">Поделиться</string>
     <string name="menu_send">Напиши нам</string>
+
+    <string name="tab_item_manuals">Методичка</string>
+    <string name="tab_item_player">Подкасты</string>
 
 
     <!-- Write your description about profile menu for tab 1 and tab 2 -->

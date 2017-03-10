@@ -1,113 +1,76 @@
 package com.app.codytutorials;
 
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
-import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.text.Html;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
-public class ActivityTabs extends FragmentActivity implements ActionBar.TabListener {
+import com.app.codytutorials.adapter.TabsFragmentAdapter;
+
+
+public class ActivityTabs extends AppCompatActivity {
+
+    private static final int LAYOUT = R.layout.activity_tabs;
+    private Toolbar toolbar;
     private ViewPager viewPager;
-    final String LOG_TAG = "myLogs";                     // добавлем логи
-    public  static int buttonID;                         // переменная для иницциализации переменной в класе AdapterProfile
-    private ActionBar actionBar;                         // создаем ActionBar
-    private AdapterProfile tabPagerAdapter;              // создаем адаптер
-    private String[] tabs = { "Плейлист", "Методичка" }; // подставляем названия и авт создается количество табов
-                                                         // массив для табов
+    private TabsFragmentAdapter adapter;
+
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.swipetab); // подгружаем хml для табов
+        setContentView(LAYOUT);
 
+        initToolbar();
+        initTabs();
+    }//onCreate
 
-        viewPager = (ViewPager) findViewById(R.id.pager);   // создаем  страницу
-
-        tabPagerAdapter = new AdapterProfile(getSupportFragmentManager()); // вызов адаптера!!! Важно!
-        viewPager.setAdapter(tabPagerAdapter);                             // подключаем адаптер с нужными параметрами
-
-        actionBar = getActionBar();                     // заголовок
-        assert actionBar != null;
-        actionBar.setTitle("Как будем учиться?");
-        actionBar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
-        actionBar.setTitle((Html.fromHtml("<font color=\"#ffffff\">" + "Как будем учиться?" + "</font>")));
-
-        getActionBar().setDisplayHomeAsUpEnabled(true); // добавляем иконку назад на ActionBar
-        getActionBar().setHomeButtonEnabled(true);      // делаем иконку кликабельной
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
-        for (String tab_name : tabs) {
-            actionBar.addTab(actionBar.newTab().setText(tab_name)
-                    .setTabListener(this));
-        }
-
-
-         // Следим за изминениями табов и ставим id позиции, для передачи в адаптер и зменением
-         // седержимого таба,  через адаптер.
-
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+    // инициализация Toolbar
+    private void initToolbar() {
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.mipmap.ic_keyboard_backspace);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPageSelected(int position) {
-                actionBar.setSelectedNavigationItem(position);
-                // в зависимости от позиции передаем id таба
+            public void onClick(View v) {
+                finish();
+                overridePendingTransition(R.anim.open_main, R.anim.close_next);
             }
-
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) { }
-
-            @Override
-            public void onPageScrollStateChanged(int arg0) { }
         });
+        toolbar.setTitle(R.string.title_toolbar_java);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return false;
+            }
+        });
+        toolbar.inflateMenu(R.menu.menu_player);
+    }// initToolbar
 
-        // присваиваем полученую кнопку  с  Extra
-        buttonID = getIntent().getIntExtra("fname", 0);
+    // инициализация Tabs
+    private void initTabs() {
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+        adapter = new TabsFragmentAdapter(this, getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(Constans.TAB_ONE);
 
-        Log.d(LOG_TAG, "номер индекса активити: " + buttonID);
+        TabLayout tabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager);
+    }// initTabs
 
-    } // OnCreate
-
-    @Override
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
-        Log.d(LOG_TAG, "reselected tab: " + tab.getText());
-    }
-
-    @Override
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
-        // при переходе на новый таб, присваеваем  pos чтобы обновить даннвые
-        viewPager.setCurrentItem(tab.getPosition());
-        Log.d(LOG_TAG, "selected tab: " + tab.getText());
-    }
-
-    @Override
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-        Log.d(LOG_TAG, "unselected tab: " + tab.getText());
-    }
-
-    // по возврату назад
     @Override
     public void onBackPressed() {
-        super.onBackPressed(); // по кнопке назад  в телефоне запускаем анимацию
-        overridePendingTransition (R.anim.open_main, R.anim.close_next);
+        super.onBackPressed();
+        Intent intent = new Intent(ActivityTabs.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        overridePendingTransition(R.anim.open_main, R.anim.close_next);
     }//onBackPressed
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                // нажатие по иконке назад  в экшей баре, влозвращаемся  вглавное активити
-                this.finish();
-                overridePendingTransition (R.anim.open_main, R.anim.close_next);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }// switch
-    }//onOptionsItemSelected
-
-
-}//ActivityTabs
+}
