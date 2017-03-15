@@ -1,12 +1,11 @@
 package com.app.codytutorials;
 
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +19,7 @@ public class ActivityTabs extends AppCompatActivity {
     private Toolbar toolbar;
     private ViewPager viewPager;
     private TabsFragmentAdapter adapter;
-
+    Intent intentPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,8 @@ public class ActivityTabs extends AppCompatActivity {
                 return false;
             }
         });
-        toolbar.inflateMenu(R.menu.menu_player);
+        toolbar.inflateMenu(R.menu.main);
+
     }// initToolbar
 
     // инициализация Tabs
@@ -73,4 +73,36 @@ public class ActivityTabs extends AppCompatActivity {
         overridePendingTransition(R.anim.open_main, R.anim.close_next);
     }//onBackPressed
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        //noinspection SimplifiableIfStatement
+        switch(id) {
+            case R.id.settings:
+                intentPref = new Intent(this, PreferencesActivity.class);
+                startActivity(intentPref);
+                overridePendingTransition(R.anim.open_next, R.anim.close_next);
+                break;
+            case R.id.about:
+                intentPref = new Intent(this, ActivityAbout.class);
+                startActivity(intentPref);
+                overridePendingTransition(R.anim.open_next, R.anim.close_next);
+                break;
+            case R.id.rate_app:
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+                }
+                break;
+            case R.id.more_app:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.more_apps))));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

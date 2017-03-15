@@ -119,6 +119,12 @@
     <string name="menu">Меню</string>
     <string name="txt_welcom">Добро пожаловать!</string>
     <string name="hint_search">Поиск</string>
+    <string name="forward">вперед</string>
+    <string name="pause">Пауза</string>
+    <string name="back">Назад</string>
+    <string name="rewind">rewind</string>
+    <string name="btnPlay">Играть</string>
+    <string name="music_palyer">Music Palyer</string>
 </resources>
 
 

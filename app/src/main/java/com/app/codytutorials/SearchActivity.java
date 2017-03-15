@@ -108,7 +108,7 @@ public class SearchActivity extends Activity {
         videosFound.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplication(), PlayerActivity.class);
+                Intent intent = new Intent(getApplication(), VideoPlayerActivity.class);
                 intent.putExtra("VIDEO_ID", searchResults.get(position).getId());
                 startActivity(intent);
             }

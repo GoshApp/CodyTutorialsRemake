@@ -27,7 +27,7 @@
             android:name=".ActivityContactUs"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PlayerActivity"
+            android:name=".VideoPlayerActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".SearchActivity"
