@@ -1,4 +1,4 @@
-package com.app.codytutorials;
+package com.app.codytutorials.activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.app.codytutorials.Constans;
+import com.app.codytutorials.R;
 import com.app.codytutorials.adapter.TabsFragmentAdapter;
 
 
@@ -46,7 +48,32 @@ public class ActivityTabs extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                return false;
+                int id = item.getItemId();
+                //noinspection SimplifiableIfStatement
+                switch(id) {
+                    case R.id.settings:
+                        intentPref = new Intent(getApplicationContext(), PreferencesActivity.class);
+                        startActivity(intentPref);
+                        overridePendingTransition(R.anim.open_next, R.anim.close_next);
+                        break;
+                    case R.id.about:
+                        intentPref = new Intent(getApplicationContext(), ActivityAbout.class);
+                        startActivity(intentPref);
+                        overridePendingTransition(R.anim.open_next, R.anim.close_next);
+                        break;
+                    case R.id.rate_app:
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
+                        } catch (android.content.ActivityNotFoundException anfe) {
+                            startActivity(new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+                        }
+                        break;
+                    case R.id.more_app:
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.more_apps))));
+                        break;
+                }
+                return true;
             }
         });
         toolbar.inflateMenu(R.menu.main);
@@ -73,36 +100,4 @@ public class ActivityTabs extends AppCompatActivity {
         overridePendingTransition(R.anim.open_main, R.anim.close_next);
     }//onBackPressed
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-        switch(id) {
-            case R.id.settings:
-                intentPref = new Intent(this, PreferencesActivity.class);
-                startActivity(intentPref);
-                overridePendingTransition(R.anim.open_next, R.anim.close_next);
-                break;
-            case R.id.about:
-                intentPref = new Intent(this, ActivityAbout.class);
-                startActivity(intentPref);
-                overridePendingTransition(R.anim.open_next, R.anim.close_next);
-                break;
-            case R.id.rate_app:
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
-                }
-                break;
-            case R.id.more_app:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.more_apps))));
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

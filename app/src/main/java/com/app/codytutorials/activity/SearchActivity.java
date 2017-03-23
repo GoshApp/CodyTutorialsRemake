@@ -1,4 +1,4 @@
-package com.app.codytutorials;
+package com.app.codytutorials.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -22,6 +22,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.app.codytutorials.R;
+import com.app.codytutorials.VideoItem;
+import com.app.codytutorials.YoutubeConnector;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

@@ -1,8 +1,10 @@
-package com.app.codytutorials;
+package com.app.codytutorials.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.app.codytutorials.activity.MainActivity;
 
 
 /**

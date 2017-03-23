@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.Light">
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,27 +20,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ActivityContactUs"
+            android:name=".activity.ActivityContactUs"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".VideoPlayerActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".SearchActivity"
+            android:name=".activity.SearchActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".PreferencesActivity" />
+        <activity android:name=".activity.PreferencesActivity" />
         <activity
-            android:name=".ActivityAbout"
+            android:name=".activity.ActivityAbout"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityTabs"
+            android:name=".activity.ActivityTabs"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.DetailActivity"></activity>
     </application>
 
 </manifest>

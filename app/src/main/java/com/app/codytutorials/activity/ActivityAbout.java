@@ -1,4 +1,4 @@
-package com.app.codytutorials;
+package com.app.codytutorials.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.view.MenuItem;
+
+import com.app.codytutorials.R;
 
 public class ActivityAbout extends Activity {
 	/** Called when the activity is first created. */
