@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -32,6 +33,8 @@ import java.util.List;
 
 public class SearchActivity extends Activity {
 
+
+    private Toolbar toolbar;
     private EditText searchInput;
     private ListView videosFound;
     private Handler handler;
@@ -40,14 +43,12 @@ public class SearchActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        ActionBar bar = getActionBar();
-        assert bar != null;
-        bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
-        bar.setTitle((Html.fromHtml("<font color=\"#ffffff\">" + "Поиск видео" + "</font>")));
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setHomeButtonEnabled(true);
+
+        initToolbar();
+
 
         searchInput = (EditText) findViewById(R.id.search_input);
         videosFound = (ListView) findViewById(R.id.videos_found);
@@ -84,6 +85,7 @@ public class SearchActivity extends Activity {
         }.start();
     }
 
+
     private void updateVideosFound() {
         ArrayAdapter<VideoItem> adapter = new ArrayAdapter<VideoItem>(getApplicationContext(), R.layout.video_item, searchResults) {
             @Override
@@ -118,51 +120,17 @@ public class SearchActivity extends Activity {
         });
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        Intent intent;
-        //noinspection SimplifiableIfStatement
-        switch(id) {
-            case android.R.id.home:
-                // app icon in action bar clicked; go home
-                intent = new Intent(this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
+    // инициализация Toolbar
+    private void initToolbar() {
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.mipmap.ic_keyboard_backspace);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
                 overridePendingTransition(R.anim.open_main, R.anim.close_next);
-                break;
-            case R.id.settings:
-                intent = new Intent(this, PreferencesActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.open_next, R.anim.close_next);
-                break;
-            case R.id.about:
-                intent = new Intent(this, ActivityAbout.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.open_next, R.anim.close_next);
-                break;
-            case R.id.rate_app:
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
-                }
-                break;
-            case R.id.more_app:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.more_apps))));
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+            }
+        });
+        toolbar.setTitle(R.string.setting);
+    }// initToolbar
 }

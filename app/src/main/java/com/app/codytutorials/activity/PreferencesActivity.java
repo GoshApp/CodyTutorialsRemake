@@ -1,49 +1,39 @@
 package com.app.codytutorials.activity;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.text.Html;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.app.codytutorials.R;
 
-public class PreferencesActivity extends Activity {
+public class PreferencesActivity extends AppCompatActivity {
+
+    public Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
-        ActionBar bar = getActionBar();
-        assert bar != null;
-        bar.setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)));
-        bar.setTitle((Html.fromHtml("<font color=\"#ffffff\">" + "Настройки" + "</font>")));
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setHomeButtonEnabled(true);
+        initToolbar();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-
-            case android.R.id.home:
-                // app icon in action bar clicked; go home
-                Intent intent = new Intent(PreferencesActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
+    // инициализация Toolbar
+    private void initToolbar() {
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.mipmap.ic_keyboard_backspace);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
                 overridePendingTransition(R.anim.open_main, R.anim.close_next);
-                return true;
+            }
+        });
+        toolbar.setTitle(R.string.setting);
 
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }//onOptionsItemSelected
+    }// initToolbar
 
 
     @Override
