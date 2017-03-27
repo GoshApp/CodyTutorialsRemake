@@ -4,19 +4,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_java"
-            android:icon="@drawable/ic_menu_java"
+            android:icon="@mipmap/ic_code_braces"
             android:title="@string/menu_java" />
         <item
             android:id="@+id/nav_javaScript"
-            android:icon="@drawable/ic_menu_js"
+            android:icon="@mipmap/ic_language_javascript"
             android:title="@string/menu_javaScript" />
         <item
             android:id="@+id/nav_python"
-            android:icon="@drawable/ic_menu_python"
+            android:icon="@mipmap/ic_language_python"
             android:title="@string/menu_python" />
         <item
             android:id="@+id/nav_web"
-            android:icon="@drawable/ic_menu_web"
+            android:icon="@mipmap/ic_web"
             android:title="@string/menu_web" />
     </group>
 
@@ -24,11 +24,11 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@mipmap/ic_share"
                 android:title="@string/menu_share" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@mipmap/ic_send"
                 android:title="@string/menu_send" />
         </menu>
     </item>
