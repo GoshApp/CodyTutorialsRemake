@@ -5,8 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.app.codytutorials.fragment.AndroidBuildingMusicPlayerFragment;
 import com.app.codytutorials.fragment.AbstractTabFragment;
-import com.app.codytutorials.fragment.AudioPlayerFragment;
 import com.app.codytutorials.fragment.ManualsFragment;
 
 import java.util.HashMap;
@@ -44,7 +44,7 @@ public class TabsFragmentAdapter extends FragmentPagerAdapter {
     private void initTabsMap() {
         tabs = new HashMap<>();
         tabs.put(0, ManualsFragment.getInstance(context));
-        tabs.put(1, AudioPlayerFragment.getInstance(context));
+        tabs.put(1, AndroidBuildingMusicPlayerFragment.getInstance(context));
 
     }// initTabsMap
 }

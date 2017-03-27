@@ -40,7 +40,7 @@
             android:name=".ActivityTabs"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-
+        <activity android:name=".PlayListActivity"/>
     </application>
 
 </manifest>

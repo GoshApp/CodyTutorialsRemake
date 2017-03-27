@@ -31,15 +31,17 @@ public class ManualsFragment extends AbstractTabFragment {
         fragment.setTitle(context.getString(R.string.tab_item_manuals));
 
         return fragment;
-    }// WorldFragment
+    }// ManualsFragment
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(LAYOUT, container, false);
+
         RecyclerView rv = (RecyclerView) view.findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(context));
         rv.setAdapter(new ArticlesListAdapter(createMockData()));
+
         return view;
     }// onCreateView
 

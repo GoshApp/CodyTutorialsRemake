@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity
 
     Intent intent;
     Intent intentPref;
-    ActivityTabs activityTabs;
 
 
     @Override

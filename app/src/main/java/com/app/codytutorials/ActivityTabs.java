@@ -20,7 +20,6 @@ public class ActivityTabs extends AppCompatActivity {
     private ViewPager viewPager;
     private TabsFragmentAdapter adapter;
     Intent intentPref;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme_NoActionBar);
@@ -29,12 +28,14 @@ public class ActivityTabs extends AppCompatActivity {
 
         initToolbar();
         initTabs();
+
     }//onCreate
 
     // инициализация Toolbar
     private void initToolbar() {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.mipmap.ic_keyboard_backspace);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.color_bg));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +72,7 @@ public class ActivityTabs extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
         overridePendingTransition(R.anim.open_main, R.anim.close_next);
+        finish();
     }//onBackPressed
 
     @Override
