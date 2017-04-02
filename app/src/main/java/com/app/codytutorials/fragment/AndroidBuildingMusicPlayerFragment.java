@@ -43,7 +43,7 @@ public class AndroidBuildingMusicPlayerFragment extends AbstractTabFragment
     private TextView songCurrentDurationLabel;
     private TextView songTotalDurationLabel;
     // Media Player
-    private  MediaPlayer mp;
+    public  MediaPlayer mp;
     // Handler to update UI timer, progress bar etc,.
     private Handler mHandler = new Handler();;
     private SongsManager songManager;
@@ -51,6 +51,7 @@ public class AndroidBuildingMusicPlayerFragment extends AbstractTabFragment
     private int seekForwardTime = 5000; // 5000 milliseconds
     private int seekBackwardTime = 5000; // 5000 milliseconds
     private int currentSongIndex = 0;
+    public boolean isUpdate = true;
     private boolean isShuffle = false;
     private boolean isRepeat = false;
     private ArrayList<HashMap<String, String>> songsList = new ArrayList<HashMap<String, String>>();
@@ -65,7 +66,6 @@ public class AndroidBuildingMusicPlayerFragment extends AbstractTabFragment
 
         return fragment;
     }// AndroidBuildingMusicPlayerFragment
-
 
     @Nullable
     @Override
@@ -338,25 +338,56 @@ public class AndroidBuildingMusicPlayerFragment extends AbstractTabFragment
     /**
      * Background Runnable thread
      * */
-    private Runnable mUpdateTimeTask = new Runnable() {
+    public Runnable mUpdateTimeTask = new UpdateTimeTask();// {
+//        public void run() {
+//            if (isUpdate) {
+//                long totalDuration = mp.getDuration();
+//                long currentDuration = mp.getCurrentPosition();
+//
+//                // Displaying Total Duration time
+//                songTotalDurationLabel.setText("" + utils.milliSecondsToTimer(totalDuration));
+//                // Displaying time completed playing
+//                songCurrentDurationLabel.setText("" + utils.milliSecondsToTimer(currentDuration));
+//
+//                // Updating progress bar
+//                int progress = (int) (utils.getProgressPercentage(currentDuration, totalDuration));
+//                //Log.d("Progress", ""+progress);
+//                songProgressBar.setProgress(progress);
+//
+//                // Running this thread after 100 milliseconds
+//                mHandler.postDelayed(this, 100);
+//            }else{
+//                mp.release();
+//            }
+//        }
+
+ //   };
+
+    class UpdateTimeTask implements Runnable {
+
+        @Override
         public void run() {
-            long totalDuration = mp.getDuration();
-            long currentDuration = mp.getCurrentPosition();
+            if (isUpdate) {
+                long totalDuration = mp.getDuration();
+                long currentDuration = mp.getCurrentPosition();
 
-            // Displaying Total Duration time
-            songTotalDurationLabel.setText(""+utils.milliSecondsToTimer(totalDuration));
-            // Displaying time completed playing
-            songCurrentDurationLabel.setText(""+utils.milliSecondsToTimer(currentDuration));
+                // Displaying Total Duration time
+                songTotalDurationLabel.setText("" + utils.milliSecondsToTimer(totalDuration));
+                // Displaying time completed playing
+                songCurrentDurationLabel.setText("" + utils.milliSecondsToTimer(currentDuration));
 
-            // Updating progress bar
-            int progress = (int)(utils.getProgressPercentage(currentDuration, totalDuration));
-            //Log.d("Progress", ""+progress);
-            songProgressBar.setProgress(progress);
+                // Updating progress bar
+                int progress = (int) (utils.getProgressPercentage(currentDuration, totalDuration));
+                //Log.d("Progress", ""+progress);
+                songProgressBar.setProgress(progress);
 
-            // Running this thread after 100 milliseconds
-            mHandler.postDelayed(this, 100);
+                // Running this thread after 100 milliseconds
+                mHandler.postDelayed(this, 100);
+            }else{
+                mp.release();
+            }
         }
-    };
+    }
 
     /**
      *
@@ -394,7 +425,7 @@ public class AndroidBuildingMusicPlayerFragment extends AbstractTabFragment
     /**
      * On Song Playing completed
      * if repeat is ON play same song again
-     * if shuffle is ON play random song
+ 0    * if shuffle is ON play random song
      * */
     @Override
     public void onCompletion(MediaPlayer arg0) {

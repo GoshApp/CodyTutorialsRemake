@@ -13,15 +13,17 @@ import android.view.View;
 import com.app.codytutorials.Constans;
 import com.app.codytutorials.R;
 import com.app.codytutorials.adapter.TabsFragmentAdapter;
+import com.app.codytutorials.fragment.AndroidBuildingMusicPlayerFragment;
 
 
 public class ActivityTabs extends AppCompatActivity {
-
+    AndroidBuildingMusicPlayerFragment playerFragment;
     private static final int LAYOUT = R.layout.activity_tabs;
     private Toolbar toolbar;
     private ViewPager viewPager;
     private TabsFragmentAdapter adapter;
     Intent intentPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme_NoActionBar);
@@ -41,6 +43,7 @@ public class ActivityTabs extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                playerFragment.isUpdate = false;
                 finish();
                 overridePendingTransition(R.anim.open_main, R.anim.close_next);
             }
@@ -94,6 +97,8 @@ public class ActivityTabs extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+//        playerFragment.mp.release();
+//        AndroidBuildingMusicPlayerFragment.isUpdate = false;
         super.onBackPressed();
         Intent intent = new Intent(ActivityTabs.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
