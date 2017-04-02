@@ -39,7 +39,6 @@ public class ActivityTabs extends AppCompatActivity {
     private void initToolbar() {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.mipmap.ic_keyboard_backspace);
-        toolbar.setBackgroundColor(getResources().getColor(R.color.color_bg));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,8 +96,8 @@ public class ActivityTabs extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        playerFragment.mp.release();
-//        AndroidBuildingMusicPlayerFragment.isUpdate = false;
+        AndroidBuildingMusicPlayerFragment.isUpdate = false;
+        // передаем значение false для того чтобы прекратить проигрывание
         super.onBackPressed();
         Intent intent = new Intent(ActivityTabs.this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);

@@ -63,6 +63,9 @@ public class PlayListActivity extends ListActivity {
                 // Sending songIndex to PlayerActivity
                 in.putExtra("songIndex", songIndex);
                 setResult(100, in);
+
+                AndroidBuildingMusicPlayerFragment.isUpdate = true;
+                // передаем значение true для того чтобы разрешить проигрывание иначе песня идет в паузу.
                 // Closing PlayListView
                 finish();
             }

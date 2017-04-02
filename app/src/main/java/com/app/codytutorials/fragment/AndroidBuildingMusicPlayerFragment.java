@@ -51,7 +51,7 @@ public class AndroidBuildingMusicPlayerFragment extends AbstractTabFragment
     private int seekForwardTime = 5000; // 5000 milliseconds
     private int seekBackwardTime = 5000; // 5000 milliseconds
     private int currentSongIndex = 0;
-    public boolean isUpdate = true;
+    public static boolean isUpdate = true;
     private boolean isShuffle = false;
     private boolean isRepeat = false;
     private ArrayList<HashMap<String, String>> songsList = new ArrayList<HashMap<String, String>>();
@@ -384,7 +384,13 @@ public class AndroidBuildingMusicPlayerFragment extends AbstractTabFragment
                 // Running this thread after 100 milliseconds
                 mHandler.postDelayed(this, 100);
             }else{
-                mp.release();
+                if(mp!=null) {
+                    mp.pause();
+                    // Changing button image to play button
+                    btnPlay.setImageResource(R.drawable.btn_play);
+                }
+                //mp.release();
+
             }
         }
     }
