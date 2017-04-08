@@ -1,4 +1,4 @@
-package com.app.codytutorials;
+package com.app.codytutorials.extras;
 
 /**
  * Created by Rikmen on 21.03.2017.

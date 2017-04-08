@@ -109,6 +109,7 @@
     <string name="search">Поиск</string>
     <string name="failed">Не удалось инициализировать Youtube Player</string>
     <string name="setting">Настройки</string>
+    <string name="video">Поиск видео на YouTube</string>
     <string name="about">О приложении</string>
     <string name="rate">Оценить приложение</string>
     <string name="more">Больше приложений</string>

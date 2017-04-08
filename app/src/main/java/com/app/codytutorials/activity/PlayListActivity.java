@@ -1,4 +1,4 @@
-package com.app.codytutorials;
+package com.app.codytutorials.activity;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.app.codytutorials.R;
+import com.app.codytutorials.extras.SongsManager;
 import com.app.codytutorials.fragment.AndroidBuildingMusicPlayerFragment;
 
 import java.util.ArrayList;

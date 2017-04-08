@@ -1,8 +1,5 @@
-package com.app.codytutorials;
+package com.app.codytutorials.extras;
 
-/**
- * Created by Evgeniy on 10.03.2017.
- */
 
 public class Constans {
 

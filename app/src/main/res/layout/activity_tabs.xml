@@ -20,9 +20,9 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorColor="#d6e0f5"
             app:tabIndicatorHeight="5dp"
-            app:tabSelectedTextColor="@android:color/white"
+            app:tabSelectedTextColor="#d6e0f5"
             app:tabTextColor="@android:color/black"/>
     </android.support.design.widget.AppBarLayout>
 

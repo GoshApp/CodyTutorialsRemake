@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.app.codytutorials.R;
-import com.app.codytutorials.YoutubeConnector;
+import com.app.codytutorials.extras.YoutubeConnector;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;

@@ -7,10 +7,11 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.app.codytutorials.Constans;
+import com.app.codytutorials.extras.Constans;
 import com.app.codytutorials.R;
 import com.app.codytutorials.adapter.TabsFragmentAdapter;
 import com.app.codytutorials.fragment.AndroidBuildingMusicPlayerFragment;
@@ -38,19 +39,13 @@ public class ActivityTabs extends AppCompatActivity {
     // инициализация Toolbar
     private void initToolbar() {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.mipmap.ic_keyboard_backspace);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerFragment.isUpdate = false;
-                finish();
-                overridePendingTransition(R.anim.open_main, R.anim.close_next);
-            }
-        });
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle(R.string.title_toolbar_java);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+
                 int id = item.getItemId();
                 //noinspection SimplifiableIfStatement
                 switch(id) {
@@ -106,4 +101,21 @@ public class ActivityTabs extends AppCompatActivity {
         finish();
     }//onBackPressed
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            playerFragment.isUpdate = false;
+            finish();
+            overridePendingTransition(R.anim.open_next, R.anim.close_next);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

@@ -16,10 +16,10 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.codytutorials.PlayListActivity;
+import com.app.codytutorials.activity.PlayListActivity;
 import com.app.codytutorials.R;
-import com.app.codytutorials.SongsManager;
-import com.app.codytutorials.Utilities;
+import com.app.codytutorials.extras.SongsManager;
+import com.app.codytutorials.extras.Utilities;
 
 import java.io.IOException;
 import java.util.ArrayList;

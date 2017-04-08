@@ -1,8 +1,10 @@
-package com.app.codytutorials;
+package com.app.codytutorials.extras;
 
 import android.content.Context;
 import android.util.Log;
 
+import com.app.codytutorials.R;
+import com.app.codytutorials.extras.VideoItem;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;

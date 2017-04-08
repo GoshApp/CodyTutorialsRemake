@@ -1,18 +1,11 @@
 package com.app.codytutorials.activity;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -24,8 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.app.codytutorials.R;
-import com.app.codytutorials.VideoItem;
-import com.app.codytutorials.YoutubeConnector;
+import com.app.codytutorials.extras.VideoItem;
+import com.app.codytutorials.extras.YoutubeConnector;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -131,6 +124,6 @@ public class SearchActivity extends Activity {
                 overridePendingTransition(R.anim.open_main, R.anim.close_next);
             }
         });
-        toolbar.setTitle(R.string.setting);
+        toolbar.setTitle(R.string.video);
     }// initToolbar
 }

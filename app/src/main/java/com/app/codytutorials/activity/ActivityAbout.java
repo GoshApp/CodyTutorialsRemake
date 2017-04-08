@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -37,14 +38,25 @@ public class ActivityAbout extends AppCompatActivity {
 	// инициализация Toolbar
 	private void initToolbar() {
 		toolbar = (Toolbar)findViewById(R.id.toolbar);
-		toolbar.setNavigationIcon(R.mipmap.ic_keyboard_backspace);
-		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				finish();
-				overridePendingTransition(R.anim.open_main, R.anim.close_next);
-			}
-		});
+		setSupportActionBar(toolbar);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		toolbar.setTitle(R.string.setting);
 	}// initToolbar
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+
+		if (id == android.R.id.home) {
+			finish();
+			overridePendingTransition(R.anim.open_next, R.anim.close_next);
+		}
+		return super.onOptionsItemSelected(item);
+	}
 }
