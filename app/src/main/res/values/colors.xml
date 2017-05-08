@@ -5,4 +5,5 @@
     <color name="colorAccent">#81b3c7</color>
     <color name="colorBackgroundSplashActivity">#ffffff</color>
     <color name="white">#ffffff</color>
+    <color name="auth_back">#4c72af</color>
 </resources>

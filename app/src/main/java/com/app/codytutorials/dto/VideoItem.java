@@ -1,4 +1,4 @@
-package com.app.codytutorials.extras;
+package com.app.codytutorials.dto;
 
 
 public class VideoItem {

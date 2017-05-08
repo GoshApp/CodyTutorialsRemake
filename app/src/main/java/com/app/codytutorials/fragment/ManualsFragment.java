@@ -56,7 +56,7 @@ public class ManualsFragment extends AbstractTabFragment {
         try {
             String[] files = myAssetManager.list("java"); // массив имен файлов
             for (String title : files){
-                data.add(new DTO(title.substring(0, (title.length() -5))));
+                data.add(new DTO(title));
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "774727124943",
+    "firebase_url": "https://cody-tutorials.firebaseio.com",
+    "project_id": "cody-tutorials",
+    "storage_bucket": "cody-tutorials.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774727124943:android:8e42795d111fd6e1",
+        "android_client_info": {
+          "package_name": "com.app.codytutorials"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774727124943-2qme7uqecaf1hhaap4cqa1i97i4i2hf6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.codytutorials",
+            "certificate_hash": "02dc7390996afec5d21a8b4c65881953f39a83cd"
+          }
+        },
+        {
+          "client_id": "774727124943-uok4mu66c5dgq4p1vna7t1akqt3jfdlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIq_52DYt654EtBorI-_kc5SMpU-AOo48"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774727124943-uok4mu66c5dgq4p1vna7t1akqt3jfdlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android1:id="@+id/auth_activity"
+    android1:layout_width="match_parent"
+    android1:layout_height="match_parent"
+    android1:background="@color/auth_back"
+    tools:context="com.app.codytutorials.activity.AuthActivity">
+
+
+    <EditText
+        android1:id="@+id/et_email"
+        android1:inputType="textEmailAddress"
+        android1:layout_width="250dp"
+        android1:layout_height="50dp"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginTop="145dp"
+        android1:hint="@string/auth_email"
+        android1:textColorHint="@android:color/darker_gray"
+        android1:textSize="20sp"
+         />
+
+    <EditText
+        android1:layout_below="@id/et_email"
+        android1:id="@+id/et_password"
+        android1:inputType="textPassword"
+        android1:layout_width="250dp"
+        android1:layout_height="50dp"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginTop="10dp"
+        android1:hint="@string/auth_password"
+        android1:textColorHint="@android:color/darker_gray"
+        android1:textSize="20sp"
+        />
+
+    <LinearLayout
+        android1:layout_width="match_parent"
+        android1:layout_height="wrap_content"
+        android1:orientation="horizontal"
+        android1:layout_below="@id/et_password"
+        android1:layout_marginTop="20dp">
+
+        <Button
+            android1:id="@+id/btn_entry"
+            android1:layout_width="match_parent"
+            android1:layout_height="match_parent"
+            android1:layout_weight="1"
+            android1:text="@string/auth_btn_entry" />
+
+        <Button
+            android1:id="@+id/btn_register"
+            android1:layout_width="match_parent"
+            android1:layout_height="match_parent"
+            android1:layout_weight="1"
+            android1:text="@string/auth_btn_register"/>
+    </LinearLayout>
+
+</RelativeLayout>

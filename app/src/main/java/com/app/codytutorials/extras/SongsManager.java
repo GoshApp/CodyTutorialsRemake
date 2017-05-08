@@ -1,12 +1,20 @@
 package com.app.codytutorials.extras;
 
 
-import android.os.Environment;
+
+import android.content.res.AssetManager;
+import android.net.Uri;
+
+import com.app.codytutorials.dto.DTO;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static android.support.v7.appcompat.R.id.home;
+import static java.security.AccessController.getContext;
 
 public class SongsManager {
     // SDCard Path
@@ -23,7 +31,18 @@ public class SongsManager {
      * and store the details in ArrayList
      * */
     public ArrayList<HashMap<String, String>> getPlayList(){
-        File home = new File(MEDIA_PATH);
+        File home = new File(String.valueOf(MEDIA_PATH));
+
+//        AssetManager myAssetManager = getContext().getAssets();
+//        try {
+//            String[] files = myAssetManager.list("javamedia"); // массив имен файлов
+//            for (String title : files){
+//                data.add(new DTO(title));
+//            }
+//        } catch (IOException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
 
         if (home.listFiles(new FileExtensionFilter()).length > 0) {
             for (File file : home.listFiles(new FileExtensionFilter())) {
@@ -35,7 +54,7 @@ public class SongsManager {
                 songsList.add(song);
             }
         }
-        // return songs list array
+
         return songsList;
     }
 

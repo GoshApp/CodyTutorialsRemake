@@ -126,6 +126,10 @@
     <string name="rewind">rewind</string>
     <string name="btnPlay">Играть</string>
     <string name="music_palyer">Music Palyer</string>
+    <string name="auth_email">Email</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_btn_entry">Вход</string>
+    <string name="auth_btn_register">Регистрация</string>
 </resources>
 
 
