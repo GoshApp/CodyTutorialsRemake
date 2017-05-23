@@ -130,6 +130,7 @@
     <string name="auth_password">Password</string>
     <string name="auth_btn_entry">Вход</string>
     <string name="auth_btn_register">Регистрация</string>
+    <string name="detail_title_default">Заголовок по умолчанию</string>
 </resources>
 
 

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "774727124943-of83olib4c23hsmercupu0j74km3f86a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.codytutorials",
+            "certificate_hash": "9cfdc3a8632a07285649ff9c4e91222d07edd715"
+          }
+        },
+        {
           "client_id": "774727124943-2qme7uqecaf1hhaap4cqa1i97i4i2hf6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

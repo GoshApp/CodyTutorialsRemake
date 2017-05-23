@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.app.codytutorials.R;
-import com.app.codytutorials.dto.VideoItem;
+import com.app.codytutorials.models.VideoItem;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;

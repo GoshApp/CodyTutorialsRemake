@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.app.codytutorials.R;
-import com.app.codytutorials.dto.VideoItem;
+import com.app.codytutorials.models.VideoItem;
 import com.app.codytutorials.extras.YoutubeConnector;
 import com.squareup.picasso.Picasso;
 

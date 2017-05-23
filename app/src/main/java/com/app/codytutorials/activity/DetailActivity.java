@@ -1,44 +1,80 @@
 package com.app.codytutorials.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebView;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.codytutorials.R;
-import com.app.codytutorials.dto.DTO;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class DetailActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private WebView wView;
     private ProgressDialog progressDialog;
+    private TextView detailTitle;
+    private TextView detailContent;
+    private DatabaseReference mRef;
+    private Context context;
+    private String article_key = null;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        wView = (WebView)findViewById(R.id.wView);
-        wView.setBackgroundColor(0x00000000);
         initToolbar();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMax(50);
+        progressDialog.setMessage("Загрузка....");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+        detailTitle = (TextView)findViewById(R.id.detailTitle);
+        detailContent = (TextView)findViewById(R.id.detailContent);
 
-        if (getIntent().getSerializableExtra("article") != null){
-            showProgressBar();
-            DTO dto = (DTO)getIntent().getSerializableExtra("article");
-            String articleUrl = "file:///android_asset/java/" + dto.getTitle();
-            wView.loadUrl(articleUrl);
-        }
-        if (progressDialog != null) {
-            if (progressDialog.isShowing()) {
+        article_key = getIntent().getExtras().getString("article_id");
+        Toast.makeText(DetailActivity.this, article_key, Toast.LENGTH_SHORT).show();
+        mRef = FirebaseDatabase.getInstance().getReference().child("Java");
+
+        mRef.child(article_key).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String mTitle = (String) dataSnapshot.child("title").getValue();
+                String mContent = (String) dataSnapshot.child("fullText").getValue();
+
+                detailTitle.setText(mTitle);
+                detailContent.setText(mContent);
                 progressDialog.dismiss();
             }
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     // инициализация Toolbar
@@ -48,14 +84,6 @@ public class DetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle(R.string.title_toolbar_java);
     }// initToolbar
-
-    private void showProgressBar() {
-        progressDialog = new ProgressDialog(DetailActivity.this);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.setProgress(2000);
-        progressDialog.setCancelable(false);
-        progressDialog.show();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -73,5 +101,4 @@ public class DetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

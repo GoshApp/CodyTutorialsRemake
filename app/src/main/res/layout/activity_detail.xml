@@ -19,8 +19,42 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <include layout="@layout/content_detail" />
-
+                <TextView
+                    android:id="@+id/detailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/detail_title_default"
+                    android:textColor="@android:color/black"
+                    android:textSize="25sp"/>
+                <TextView
+                    android:layout_below="@+id/detailTitle"
+                    android:id="@+id/detailContent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/detail_title_default"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
