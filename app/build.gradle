@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.app.codytutorials"
-        minSdkVersion 17
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -38,6 +38,8 @@ dependencies {
     compile 'com.google.firebase:firebase-storage:10.2.6'
     testCompile 'junit:junit:4.12'
 }
+
+
 
 
 

@@ -38,8 +38,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.DetailActivity" />
-        <activity android:name=".activity.VideoPlayerActivity"/>
-        <!--<activity android:name=".activity.PlayListActivity" />-->
+        <activity android:name=".activity.VideoPlayerActivity" />
+        <activity android:name=".activity.PlayListActivity" />
+        <activity
+            android:name=".activity.TestVideoStreaming2"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.TestVideoStreaming"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

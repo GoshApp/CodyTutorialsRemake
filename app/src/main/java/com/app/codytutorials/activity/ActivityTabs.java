@@ -9,16 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.app.codytutorials.extras.Constans;
 import com.app.codytutorials.R;
 import com.app.codytutorials.adapter.TabsFragmentAdapter;
-//import com.app.codytutorials.fragment.AndroidBuildingMusicPlayerFragment;
+import com.app.codytutorials.extras.Constans;
+import com.app.codytutorials.fragment.AndroidBuildingMusicPlayerFragment;
 
 
 public class ActivityTabs extends AppCompatActivity {
-    //AndroidBuildingMusicPlayerFragment playerFragment;
+    AndroidBuildingMusicPlayerFragment playerFragment;
     private static final int LAYOUT = R.layout.activity_tabs;
     private Toolbar toolbar;
     private ViewPager viewPager;
@@ -42,7 +41,7 @@ public class ActivityTabs extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setTitle(R.string.title_toolbar_java);
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        toolbar.setOnMenuItemClickListener( new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
@@ -91,7 +90,7 @@ public class ActivityTabs extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-       // AndroidBuildingMusicPlayerFragment.isUpdate = false;
+        AndroidBuildingMusicPlayerFragment.isUpdate = false;
         // передаем значение false для того чтобы прекратить проигрывание
         super.onBackPressed();
         Intent intent = new Intent(ActivityTabs.this, MainActivity.class);
@@ -112,7 +111,7 @@ public class ActivityTabs extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-           // playerFragment.isUpdate = false;
+            playerFragment.isUpdate = false;
             finish();
             overridePendingTransition(R.anim.open_next, R.anim.close_next);
         }

@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.app.codytutorials.R;
 import com.app.codytutorials.activity.DetailActivity;
@@ -66,10 +65,7 @@ public class ManualsFragment extends AbstractTabFragment {
 
     private void setupAdapter() {
         adapter = new FirebaseRecyclerAdapter<Article, ArticleViewHolder>(
-                Article.class,
-                R.layout.list_item,
-                ArticleViewHolder.class,
-                mRef.child("Java")
+                Article.class, R.layout.list_item, ArticleViewHolder.class, mRef.child("Java")
         ) {
             @Override
             protected void populateViewHolder(ArticleViewHolder viewHolder, Article model, final int position) {

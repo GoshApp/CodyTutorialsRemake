@@ -121,8 +121,18 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra("fname", R.id.nav_java);
             startActivity(intent);
             overridePendingTransition(R.anim.open_next, R.anim.close_next);
-
         } else if (id == R.id.nav_javaScript) {
+            Log.d(LOG_TAG, "номер id кнопки: " + R.id.nav_java);
+            intent = new Intent(this,  TestVideoStreaming2.class);
+            intent.putExtra("fname", R.id.nav_java);
+            startActivity(intent);
+            overridePendingTransition(R.anim.open_next, R.anim.close_next);
+
+
+
+
+
+
 //            Log.d(LOG_TAG, "!!!!!!!!!!!!!!!!!!номер id кнопки: " + item.getItemId());
 //            intent = new Intent(this, ActivityTabs.class);
 //            intent.putExtra("fname", item.getItemId());
